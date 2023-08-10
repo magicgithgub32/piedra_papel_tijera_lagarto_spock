@@ -34,7 +34,7 @@ const Game = () => {
         setPlayerOne(null);
         setPlayerTwo(null);
         setIsPlayerOneTurn(true);
-      }, 200);
+      }, 1500);
     }
   }, [playerOne, playerTwo]);
 
