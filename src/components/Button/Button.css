@@ -1,0 +1,14 @@
+button {
+    background-color: var(--button-color);
+    color: var(--button-text-color);
+    padding: .3rem;
+    width: 100px;
+    height: auto;
+    font-size: 20px;
+    cursor: pointer;
+  }
+
+
+.play-button {
+    margin-top: 2rem;
+}

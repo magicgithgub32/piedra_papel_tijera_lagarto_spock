@@ -1,0 +1,39 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+
+:root {
+    --main-bg-color: #ffe6df;
+    --area-bg-color: #faaaa5;
+    --button-color: #11cce1;
+    --primary-text-color: #020202;
+    --button-text-color: whitesmoke;
+  
+    --transition: 0.8s ease-in-out;
+  
+  }
+
+* {
+margin: 0;
+padding: 0;
+box-sizing: border-box;
+text-decoration: none;
+font-family: 'VT323', monospace;
+}
+
+
+html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: var(--main-bg-color);
+    color: var(--primary-text-color);
+    min-height: 100%;
+  }
+
+  p {
+    font-size: 25px;
+  }
+
+  
+

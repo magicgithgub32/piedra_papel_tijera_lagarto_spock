@@ -1,0 +1,33 @@
+.game-board {
+    display: flex;
+    flex-direction: column;
+}
+.players-container {
+    display: flex;
+}
+
+.player-one-container {
+    margin: 20px;
+    gap: 20px;
+    height: 200px;
+    width: 200px;
+}
+
+.player-two-container {
+    margin: 20px;
+    gap: 20px;
+    height: 200px;
+    width: 200px;
+}
+
+.player-one-image, .player-two-image {
+    width: 100%;
+}
+
+.player-button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+}
