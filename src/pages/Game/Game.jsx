@@ -26,7 +26,7 @@ const Game = () => {
         setPlayerOne(null);
         setPlayerTwo(null);
         setIsPlayerOneTurn(true);
-      }, 200);
+      }, 1500);
     } else if (gameOptions[playerTwo]?.beats.includes(playerOne)) {
       setTimeout(() => {
         alert("🦎 PLAYER TWO WINS!! 🦎");
