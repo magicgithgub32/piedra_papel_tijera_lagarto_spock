@@ -31,3 +31,10 @@
     justify-content: center;
     gap: 1rem;
 }
+
+@media screen and (max-width: 768px) {
+ .player-one-container, .player-two-container {
+    height: 120px;
+    width: 120px;
+ }   
+}
