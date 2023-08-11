@@ -19,14 +19,29 @@ const Game = () => {
   // }, [playerOne, playerTwo]);
 
   useEffect(() => {
-    if (gameOptions[playerOne]?.beats.includes(playerTwo)) {
+    if (
+      isStarted &&
+      playerOne === playerTwo &&
+      playerOne !== null &&
+      playerTwo !== null
+    ) {
+      setTimeout(() => {
+        alert("🌀 THAT'S A TIE, CONTINUE PLAYING 🌀");
+        setIsGameOver(true);
+        setPlayerOne(null);
+        setPlayerTwo(null);
+        setIsPlayerOneTurn(true);
+        setIsStarted(false);
+      }, 500);
+    } else if (gameOptions[playerOne]?.beats.includes(playerTwo)) {
       setTimeout(() => {
         alert("🖖 PLAYER ONE WINS  🖖");
         setIsGameOver(true);
         setPlayerOne(null);
         setPlayerTwo(null);
         setIsPlayerOneTurn(true);
-      }, 900);
+        setIsStarted(false);
+      }, 500);
     } else if (gameOptions[playerTwo]?.beats.includes(playerOne)) {
       setTimeout(() => {
         alert("🦎 PLAYER TWO WINS!! 🦎");
@@ -34,9 +49,10 @@ const Game = () => {
         setPlayerOne(null);
         setPlayerTwo(null);
         setIsPlayerOneTurn(true);
-      }, 900);
+        setIsStarted(false);
+      }, 500);
     }
-  }, [playerOne, playerTwo]);
+  }, [playerOne, playerTwo, isStarted]);
 
   return (
     <section className="game-wrapper">
