@@ -4,55 +4,25 @@ import "./Game.css";
 import React, { useEffect, useState } from "react";
 import PlayButton from "../../components/PlayButton";
 import GameBoard from "../../components/GameBoard/GameBoard";
-// import { checkGame } from "../../utils/checkGame";
-import { gameOptions } from "../../gameOptions";
+import { checkGame } from "../../utils/checkGame";
 
 const Game = () => {
   const [isStarted, setIsStarted] = useState(false);
   const [isPlayerOneTurn, setIsPlayerOneTurn] = useState(true);
   const [playerOne, setPlayerOne] = useState(null);
   const [playerTwo, setPlayerTwo] = useState(null);
-  const [isGameOver, setIsGameOver] = useState(false);
-
-  // useEffect(() => {
-  //   checkGame(isGameOver, playerOne, playerTwo, setIsGameOver);
-  // }, [playerOne, playerTwo]);
 
   useEffect(() => {
-    if (
-      isStarted &&
-      playerOne === playerTwo &&
-      playerOne !== null &&
-      playerTwo !== null
-    ) {
-      setTimeout(() => {
-        alert("🌀 THAT'S A TIE, CONTINUE PLAYING 🌀");
-        setIsGameOver(true);
-        setPlayerOne(null);
-        setPlayerTwo(null);
-        setIsPlayerOneTurn(true);
-        setIsStarted(false);
-      }, 500);
-    } else if (gameOptions[playerOne]?.beats.includes(playerTwo)) {
-      setTimeout(() => {
-        alert("🖖 PLAYER ONE WINS  🖖");
-        setIsGameOver(true);
-        setPlayerOne(null);
-        setPlayerTwo(null);
-        setIsPlayerOneTurn(true);
-        setIsStarted(false);
-      }, 500);
-    } else if (gameOptions[playerTwo]?.beats.includes(playerOne)) {
-      setTimeout(() => {
-        alert("🦎 PLAYER TWO WINS!! 🦎");
-        setIsGameOver(true);
-        setPlayerOne(null);
-        setPlayerTwo(null);
-        setIsPlayerOneTurn(true);
-        setIsStarted(false);
-      }, 500);
-    }
-  }, [playerOne, playerTwo, isStarted]);
+    checkGame(
+      isStarted,
+      playerOne,
+      playerTwo,
+      setPlayerOne,
+      setPlayerTwo,
+      setIsPlayerOneTurn,
+      setIsStarted
+    );
+  }, [playerOne, playerTwo]);
 
   return (
     <section className="game-wrapper">
@@ -65,7 +35,6 @@ const Game = () => {
           isStarted={isStarted}
           setPlayerOne={setPlayerOne}
           setPlayerTwo={setPlayerTwo}
-          isGameOver={isGameOver}
         />
       </article>
       {isStarted && (
@@ -76,8 +45,6 @@ const Game = () => {
           setPlayerOne={setPlayerOne}
           playerTwo={playerTwo}
           setPlayerTwo={setPlayerTwo}
-          isGameOver={isGameOver}
-          setIsGameOver={setIsGameOver}
         />
       )}
     </section>

@@ -1,20 +1,43 @@
 import { gameOptions } from "../gameOptions";
 
-export const checkGame = (isGameOver, setIsGameOver, playerOne, playerTwo) => {
+export const checkGame = (
+  isStarted,
+  playerOne,
+  playerTwo,
+  setPlayerOne,
+  setPlayerTwo,
+  setIsPlayerOneTurn,
+  setIsStarted
+) => {
   if (
-    isGameOver ||
-    playerOne === null ||
-    playerTwo === null ||
-    playerOne === playerTwo
-  ) {
-    return;
-  }
+    isStarted &&
+    playerOne === playerTwo &&
+    playerOne !== null &&
+    playerTwo !== null
+  )
+    setTimeout(() => {
+      alert("🌀 THAT'S A TIE, CONTINUE PLAYING 🌀");
+      setPlayerOne(null);
+      setPlayerTwo(null);
+      setIsPlayerOneTurn(true);
+      setIsStarted(false);
+    }, 500);
 
   if (gameOptions[playerOne]?.beats.includes(playerTwo)) {
-    alert("🖖 PLAYER ONE WINS  🖖");
-    setIsGameOver(true);
+    setTimeout(() => {
+      alert("🖖 PLAYER ONE WINS  🖖");
+      setPlayerOne(null);
+      setPlayerTwo(null);
+      setIsPlayerOneTurn(true);
+      setIsStarted(false);
+    }, 500);
   } else if (gameOptions[playerTwo]?.beats.includes(playerOne)) {
-    alert("🦎 PLAYER TWO WINS!! 🦎");
-    setIsGameOver(true);
+    setTimeout(() => {
+      alert("🦎 PLAYER TWO WINS!! 🦎");
+      setPlayerOne(null);
+      setPlayerTwo(null);
+      setIsPlayerOneTurn(true);
+      setIsStarted(false);
+    }, 500);
   }
 };

@@ -5,11 +5,10 @@ const PlayButton = ({
   setIsStarted,
   setPlayerOne,
   setPlayerTwo,
-  isGameOver,
 }) => {
   const playButtonhandler = () => {
     setIsStarted(!isStarted);
-    if (isGameOver) {
+    if (!isStarted) {
       setPlayerOne(null);
       setPlayerTwo(null);
     }
