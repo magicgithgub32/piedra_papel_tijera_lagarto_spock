@@ -6,7 +6,7 @@ import React from "react";
 const Header = () => {
   return (
     <div className="header-wrapper">
-      <h1>PIEDRA_PAPEL_TIJERAS_LAGARTO_SPOCK</h1>
+      <h1>PIEDRA_PAPEL_TIJERA_LAGARTO_SPOCK</h1>
 
       <Link to={"/Game"}>
         <Button text={"GO TO GAME"} />
